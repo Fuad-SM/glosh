@@ -1,12 +1,4 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/data/model/const.dart';
-import 'package:glosh/ui/screens/signup/controller/signup_controller.dart';
-import 'package:glosh/ui/widgets/custom/custom_txtfield.dart';
-import 'package:glosh/ui/widgets/custom/custom_elevated_btn.dart';
-import 'package:glosh/ui/screens/signup/widgets/password_validation.dart';
+part of '../screen.dart';
 
 class SignUpScreen extends GetView<SignUpController> {
   const SignUpScreen({Key? key}) : super(key: key);

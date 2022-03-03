@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:shimmer/shimmer.dart';
+part of '../widget.dart';
 
 class ImageView extends StatelessWidget {
   final String urlImage;

@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:glosh/common/routes/route_name.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/data/model/const.dart';
+part of '../../screen.dart';
 
 class MenuCard extends StatelessWidget {
   const MenuCard({Key? key}) : super(key: key);
@@ -13,7 +9,7 @@ class MenuCard extends StatelessWidget {
       height: 120,
       width: MediaQuery.of(context).size.width,
       child: Padding(
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           separatorBuilder: (context, index) => const SizedBox(width: 10),

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/ui/screens/cart/controller/cart_controller.dart';
+part of '../../screen.dart';
 
 class CustomCheckBox extends StatelessWidget {
   final String tag;

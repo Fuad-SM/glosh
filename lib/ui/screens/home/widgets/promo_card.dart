@@ -1,6 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
+part of '../../screen.dart';
 
 class PromoCard extends StatelessWidget {
   const PromoCard({Key? key}) : super(key: key);
@@ -9,35 +7,38 @@ class PromoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CarouselSlider.builder(
-          options: CarouselOptions(
-            height: 100.0,
-            enableInfiniteScroll: false,
-            viewportFraction: 0.9,
-          ),
-          itemCount: 2,
-          itemBuilder:
-              (BuildContext context, int itemIndex, int pageViewIndex) =>
-                  SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: 100,
-            child: Card(
-              color: lightSeaGreenColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
+        Container(
+          width: MediaQuery.of(context).size.width / 1.13,
+          child: CarouselSlider(
+            options: CarouselOptions(
+              height: 120.0,
+              enableInfiniteScroll: true,
+              viewportFraction: 1,
+              autoPlay: true,
             ),
+            items: promo.map((image) {
+              return Builder(builder: (BuildContext context) {
+                return SizedBox(
+                  width: MediaQuery.of(context).size.width / 1.13,
+                  height: 120,
+                  child: Image.asset(
+                    'assets/images/$image.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                );
+              });
+            }).toList(),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 23, vertical: 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
                 'See All Promotion',
                 style: TextStyle(
-                    color: lightSeaGreenColor,
+                    color: darkSeaGreenColor,
                     fontWeight: FontWeight.w500,
                     fontSize: 11),
               ),

@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/ui/widgets/custom/image_view.dart';
+part of '../screen.dart';
 
-class ProductAdmin extends StatelessWidget {
+class ProductAdmin extends GetView<ProductAdminController> {
   const ProductAdmin({Key? key}) : super(key: key);
 
   @override
@@ -18,161 +16,104 @@ class ProductAdmin extends StatelessWidget {
         centerTitle: true,
         backgroundColor: tealColor,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Your Product',
-                    style: header2TxtStyle,
-                  ),
-                  Text(
-                    '120 Products',
-                    style: regularTextStyle.copyWith(
-                      color: lightSeaGreenColor,
+      body: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.fromLTRB(20, 15, 20, 5),
+            alignment: Alignment.center,
+            width: Get.width,
+            height: Get.height * 0.13,
+            child: Column(
+              children: [
+                TextField(
+                  enabled: false,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.search),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    hintText: 'Search',
+                    hintStyle: GoogleFonts.poppins(
                       fontSize: 13,
+                      color: const Color(0xffA6A1A1),
+                    ),
+                    filled: true,
+                    fillColor: whiteColor,
+                    disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                      borderSide: BorderSide(
+                        color: darkSeaGreenColor,
+                        width: 1,
+                      ),
                     ),
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                children: [
-                  Card(
-                    color: darkSeaGreenColor,
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 30),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                            'Add Product',
-                            style: header2TxtStyle.copyWith(color: whiteColor),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                          SizedBox(
-                            height: 55,
-                            width: 74,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.all(2),
-                                primary: lightGreenColor,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100),
+                ),
+                SizedBox(height: 20),
+                Obx(
+                  () => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: controller.choice
+                        .map(
+                          (c) => InkWell(
+                            onTap: () {
+                              controller.selectedChoice = c;
+                              c == 0
+                                  ? controller.pageController.animateToPage(0,
+                                      duration: Duration(milliseconds: 400),
+                                      curve: Curves.easeIn)
+                                  : controller.pageController.animateToPage(1,
+                                      duration: Duration(milliseconds: 400),
+                                      curve: Curves.easeIn);
+                            },
+                            child: Container(
+                              width: 100,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                      color: controller.selectedChoice == c
+                                          ? darkSeaGreenColor
+                                          : Colors.transparent,
+                                      width: 2),
                                 ),
                               ),
-                              onPressed: () {},
-                              child: Icon(
-                                Icons.add,
-                                size: 35,
-                                color: darkSeaGreenColor,
+                              alignment: Alignment.center,
+                              child: Text(
+                                c == 0 ? 'Product' : 'Category',
+                                style: controller.selectedChoice == c
+                                    ? regularTextStyle.copyWith(
+                                        color: darkSeaGreenColor,
+                                        fontWeight: FontWeight.w600)
+                                    : regularTextStyle.copyWith(
+                                        color: greyColor,
+                                      ),
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 24,
-                          ),
-                        ],
-                      ),
-                    ),
+                        )
+                        .toList(),
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Card(
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 10,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: 133,
-                            height: 122,
-                            child: ImageView(
-                                urlImage: 'urlImage', width: 133, height: 122),
-                          ),
-                          const SizedBox(
-                            height: 12,
-                          ),
-                          Text(
-                            'itemProduct.title',
-                            style: CardStyle.titleTxtstyle,
-                          ),
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          Text(
-                            'itemProduct.desc',
-                            style: CardStyle.descTxtstyle,
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                '1',
-                                style: CardStyle.priceTxtstyle,
-                              ),
-                              SizedBox(
-                                width: 70,
-                              ),
-                              SizedBox(
-                                height: 38,
-                                width: 51,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.all(2),
-                                    primary: darkSeaGreenColor,
-                                    elevation: 0,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(19),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Icon(
-                                    Icons.delete_outline,
-                                    size: 20,
-                                    color: whiteColor,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              width: Get.width,
+              child: PageView(
+                physics: ClampingScrollPhysics(),
+                onPageChanged: (int page) {
+                  controller.selectedChoice = page;
+                },
+                scrollDirection: Axis.horizontal,
+                controller: controller.pageController,
+                children: [
+                  ProductView(),
+                  CategoryView(),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

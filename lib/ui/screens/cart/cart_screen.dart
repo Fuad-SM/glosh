@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:glosh/common/routes/route_name.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/ui/screens/cart/widgets/cart_card.dart';
-import 'package:glosh/ui/screens/cart/widgets/custom_checkbox.dart';
-import 'package:glosh/ui/widgets/custom/custom_elevated_btn.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:material_dialogs/material_dialogs.dart';
+part of '../screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);

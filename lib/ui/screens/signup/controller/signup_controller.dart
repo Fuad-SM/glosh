@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+part of '../../screen.dart';
 
 class SignUpController extends GetxController {
   final _userController = TextEditingController();
@@ -31,4 +30,20 @@ class SignUpController extends GetxController {
   FocusNode get userFocusNode => _userFocusNode;
   FocusNode get emailFocusNode => _emailFocusNode;
   FocusNode get passwordFocusNode => _passwordFocusNode;
+
+  // Future<dynamic> _loading(BuildContext context) {
+  //   return CoolAlert.show(
+  //     context: context,
+  //     type: CoolAlertType.loading,
+  //   );
+  // }
+
+  // Future<dynamic> _success(BuildContext context) {
+  //   return CoolAlert.show(
+  //     context: context,
+  //     type: CoolAlertType.success,
+  //     title: 'Success',
+  //     text: 'Your account has been created',
+  //   );
+  // }
 }

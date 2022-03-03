@@ -1,14 +1,7 @@
 import 'package:get/get.dart';
 import 'package:glosh/common/routes/route_name.dart';
-import 'package:glosh/ui/screens/checkout/checkout_pages.dart';
-import 'package:glosh/ui/screens/getstarted/getstarted_screen.dart';
-import 'package:glosh/ui/screens/login/login_screen.dart';
-import 'package:glosh/ui/screens/product/product_pages.dart';
-import 'package:glosh/ui/screens/product_admin/product_admin.dart';
-import 'package:glosh/ui/screens/signup/signup_screen.dart';
-import 'package:glosh/ui/screens/cart/cart_screen.dart';
-import 'package:glosh/ui/screens/home/home_pages.dart';
-import 'package:glosh/ui/widgets/navbar/custom_navbar.dart';
+import 'package:glosh/ui/screens/screen.dart';
+import 'package:glosh/ui/widgets/widget.dart';
 import 'package:glosh/utils/dependency/getx_binding.dart';
 
 class GetXRoute {
@@ -60,6 +53,7 @@ class GetXRoute {
     GetPage(
         name: RouteName.productAdminRoute,
         page: () => const ProductAdmin(),
+        binding: ProductAdminBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
   ];

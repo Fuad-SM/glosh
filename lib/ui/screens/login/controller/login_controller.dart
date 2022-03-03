@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+part of '../../screen.dart';
 
 class LoginController extends GetxController {
   final _emailController = TextEditingController();

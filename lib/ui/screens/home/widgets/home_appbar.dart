@@ -1,10 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+part of '../../screen.dart';
 
-class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  CustomAppBar({Key? key})
+class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
+  HomeAppBar({Key? key})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 
@@ -12,10 +9,10 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Size preferredSize;
 
   @override
-  _CustomAppBarState createState() => _CustomAppBarState();
+  _HomeAppBarState createState() => _HomeAppBarState();
 }
 
-class _CustomAppBarState extends State<CustomAppBar> {
+class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -26,6 +23,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         ),
         SizedBox(width: 15),
         InkWell(
+          onTap: () => Get.toNamed(RouteName.checkoutRoute),
           child: Icon(Iconsax.shopping_cart),
         ),
         SizedBox(width: 15),

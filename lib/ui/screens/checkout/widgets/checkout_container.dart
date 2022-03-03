@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/data/model/const.dart';
-import 'package:glosh/data/model/product.dart';
-import 'package:glosh/ui/screens/checkout/widgets/custom_outlined_btn.dart';
+part of '../../screen.dart';
 
 class CheckoutContainer extends StatelessWidget {
   final List<Widget> listWidget;

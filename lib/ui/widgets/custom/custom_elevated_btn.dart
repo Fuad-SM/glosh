@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
+part of '../widget.dart';
 
 class CustomElevatedBtn extends StatelessWidget {
   final String title;

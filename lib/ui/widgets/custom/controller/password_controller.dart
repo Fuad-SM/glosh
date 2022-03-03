@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+part of '../../widget.dart';
 
 class PasswordController extends GetxController {
   var _passwordVisible = true.obs;

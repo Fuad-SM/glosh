@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/data/model/product.dart';
-import 'package:glosh/ui/widgets/custom/image_view.dart';
+part of '../../screen.dart';
 
 class CheckoutCard extends StatelessWidget {
   const CheckoutCard({Key? key}) : super(key: key);

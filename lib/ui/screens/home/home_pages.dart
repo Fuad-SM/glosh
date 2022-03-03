@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/ui/screens/home/widgets/deliver_card.dart';
-import 'package:glosh/ui/screens/home/widgets/home_appbar.dart';
-import 'package:glosh/ui/screens/home/widgets/menu_card.dart';
-import 'package:glosh/ui/screens/home/widgets/promo_card.dart';
-import 'package:glosh/ui/widgets/product_card.dart';
+part of '../screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,7 +6,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: HomeAppBar(),
       body: _body(context),
     );
   }
@@ -23,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           Container(
             margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height / 2.5),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 2.4),
             color: lightSeaGreenColor,
             height: 120,
             width: double.infinity,
@@ -37,12 +31,12 @@ class HomeScreen extends StatelessWidget {
             children: const [
               DeliverCard(),
               PromoCard(),
-              SizedBox(height: 15),
+              SizedBox(height: 10),
               MenuCard(),
               SizedBox(height: 85),
               Padding(
                 padding: EdgeInsets.only(left: 23, right: 23, bottom: 30),
-                child: CardItem(),
+                child: ProductCardUser(),
               ),
             ],
           ),

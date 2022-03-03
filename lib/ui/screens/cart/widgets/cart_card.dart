@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/data/model/product.dart';
-import 'package:glosh/ui/screens/cart/controller/cart_controller.dart';
-import 'package:glosh/ui/screens/cart/widgets/custom_checkbox.dart';
-import 'package:glosh/ui/widgets/custom/image_view.dart';
+part of '../../screen.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({Key? key}) : super(key: key);

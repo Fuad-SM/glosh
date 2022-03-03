@@ -31,22 +31,3 @@ Color lightGreenColor = Color(0xffDBEFE3);
 Color tealColor = Color(0xff006D7C);
 const Color greyColor = Color(0xff82868E);
 const Color lightGreyColor = Color.fromARGB(255, 197, 202, 202);
-
-// const Color darkPurpleColor = Color(0xff6750A4);
-// const Color purpleColor = Color(0xff9A82DB);
-// const Color k2darkPurpleColor = Color(0xff381E72);
-// const Color lightPurpleColor = Color(0xffEADDFF);
-// const Color backgroundColor = Color(0xffFFFBFE);
-// const Color navbarColor = Color(0xfff3edf7);
-// const Color bgCheckoutColor = Color(0xffF6EDFF);
-
-// TextStyle header1TxtStyle =
-//     GoogleFonts.workSans(fontSize: 34, fontWeight: FontWeight.w700);
-
-// TextStyle header2TxtStyle =
-//     GoogleFonts.workSans(fontSize: 20, fontWeight: FontWeight.w700);
-
-// TextStyle k2getStartedTxtStyle =
-//     TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: whiteColor);
-
-// TextStyle bodyTxtStyle = GoogleFonts.workSans(fontSize: 13);

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/ui/widgets/product_card.dart';
+part of '../screen.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({Key? key}) : super(key: key);
@@ -26,27 +24,8 @@ class ProductScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
-        child: CardItem(),
+        child: ProductCardUser(),
       ),
-
-      // Stack(
-      //   children: [
-      //     // Container(
-      //     //   color: lightSeaGreenColor,
-      //     //   height: 120,
-      //     //   width: MediaQuery.of(context).size.width,
-      //     //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      //     //   child: Text(
-      //     //     'Fresh Produce',
-      //     //     style: titleTextStyle.copyWith(color: whiteColor),
-      //     //   ),
-      //     // ),
-      //     const Padding(
-      //       padding: EdgeInsets.fromLTRB(23, 71, 23, 30),
-      //       child: CardItem(),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

@@ -12,7 +12,18 @@ const List<String> payment = [
   'Gopay',
 ];
 
+const List<String> promo = [
+  'promo1',
+  'promo2',
+  'promo3',
+  'promo4',
+];
+
 const List<String> alternative = [
   'assets/images/google.png',
   'assets/images/facebook.png',
 ];
+
+class AppEnvironment {
+  static String env = 'prod';
+}

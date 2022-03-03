@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1021237848224",
+    "project_id": "glosh-apps",
+    "storage_bucket": "glosh-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021237848224:android:52aa08dfdb5fdc5c6841c5",
+        "android_client_info": {
+          "package_name": "com.example.glosh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021237848224-4vt2mg3sfuutct7m9g4orrg9rscr59d8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq_ZS2re6acso6Wzo5uRGv_DZjHKJvMdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021237848224-4vt2mg3sfuutct7m9g4orrg9rscr59d8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

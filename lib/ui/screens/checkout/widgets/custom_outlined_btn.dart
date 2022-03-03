@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
+part of '../../screen.dart';
 
 class CustomOutlinedBtn extends StatelessWidget {
   final String title;

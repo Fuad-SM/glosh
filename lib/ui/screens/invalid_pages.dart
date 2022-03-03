@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+part of 'screen.dart';
 
 class InvalidScreen extends StatelessWidget {
   const InvalidScreen({Key? key}) : super(key: key);

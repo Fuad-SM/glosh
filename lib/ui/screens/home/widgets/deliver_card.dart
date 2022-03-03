@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
+part of '../../screen.dart';
 
 class DeliverCard extends StatelessWidget {
   const DeliverCard({Key? key}) : super(key: key);
@@ -7,7 +6,7 @@ class DeliverCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 23, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 23, vertical: 10),
       child: SizedBox(
         height: 40,
         child: Card(

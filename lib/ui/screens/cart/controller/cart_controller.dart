@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+part of '../../screen.dart';
 
 class CountCartController extends GetxController {
   var _count = 1.obs;

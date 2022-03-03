@@ -1,11 +1,4 @@
-import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
-import 'package:flutter/material.dart';
-import 'package:glosh/common/themes/theme.dart';
-import 'package:glosh/ui/screens/cart/cart_screen.dart';
-import 'package:glosh/ui/screens/home/home_pages.dart';
-import 'package:glosh/ui/screens/invalid_pages.dart';
-import 'package:glosh/ui/screens/myshop/myshop_screen.dart';
-import 'package:glosh/ui/widgets/navbar/model/model_navbar.dart';
+part of '../widget.dart';
 
 class HomeBottomNavbar extends StatefulWidget {
   const HomeBottomNavbar({Key? key}) : super(key: key);
@@ -23,6 +16,13 @@ class _HomeBottomNavbarState extends State<HomeBottomNavbar> {
     CartScreen(),
     InvalidScreen(),
     MyShopScreen(),
+  ];
+
+  final List<Navbar> _navbarItem = [
+    Navbar(icon: Icon(Iconsax.home), text: 'Home'),
+    Navbar(icon: Icon(Iconsax.shopping_bag), text: 'My Cart'),
+    Navbar(icon: Icon(Iconsax.wallet), text: 'Deals'),
+    Navbar(icon: Icon(Iconsax.shop), text: 'My Shop'),
   ];
 
   void _onItemTapped(int index) {
@@ -48,6 +48,7 @@ class _HomeBottomNavbarState extends State<HomeBottomNavbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: ClampingScrollPhysics(),
         onPageChanged: (index) {
           setState(() {
             _selectedPage = index;
@@ -60,7 +61,7 @@ class _HomeBottomNavbarState extends State<HomeBottomNavbar> {
         selectedIndex: _selectedPage,
         showElevation: true,
         onItemSelected: (index) => _onItemTapped(index),
-        items: navbar
+        items: _navbarItem
             .map(
               (data) => FlashyTabBarItem(
                 activeColor: lightSeaGreenColor,
@@ -73,4 +74,11 @@ class _HomeBottomNavbarState extends State<HomeBottomNavbar> {
       ),
     );
   }
+}
+
+class Navbar {
+  Icon icon;
+  String text;
+
+  Navbar({required this.icon, required this.text});
 }
