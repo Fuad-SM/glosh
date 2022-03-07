@@ -1,5 +1,6 @@
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:glosh/common/themes/theme.dart';
 import 'package:glosh/data/model/product.dart';
@@ -14,6 +15,7 @@ part 'custom/custom_txtfield.dart';
 part 'custom/image_view.dart';
 
 // Bottom Navigation Bar
+part 'navbar/controller/navbar_controller.dart';
 part 'navbar/custom_navbar.dart';
 
 // Product Card

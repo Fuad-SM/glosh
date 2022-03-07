@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glosh/common/routes/route_name.dart';
 import 'package:glosh/common/themes/theme.dart';
+import 'package:glosh/data/controller/firestorage_controller.dart';
 import 'package:glosh/data/model/const.dart';
 import 'package:glosh/data/model/product.dart';
 import 'package:glosh/ui/widgets/widget.dart';
@@ -14,6 +15,7 @@ import 'package:lottie/lottie.dart';
 
 // GetStarted
 part 'getstarted/getstarted_screen.dart';
+part 'getstarted/controller/getstart_controller.dart';
 
 // Login
 part 'login/controller/login_controller.dart';

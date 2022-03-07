@@ -51,46 +51,36 @@ class ProductAdmin extends GetView<ProductAdminController> {
                 Obx(
                   () => Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: controller.choice
-                        .map(
-                          (c) => InkWell(
-                            onTap: () {
-                              controller.selectedChoice = c;
-                              c == 0
-                                  ? controller.pageController.animateToPage(0,
-                                      duration: Duration(milliseconds: 400),
-                                      curve: Curves.easeIn)
-                                  : controller.pageController.animateToPage(1,
-                                      duration: Duration(milliseconds: 400),
-                                      curve: Curves.easeIn);
-                            },
-                            child: Container(
-                              width: 100,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: controller.selectedChoice == c
-                                          ? darkSeaGreenColor
-                                          : Colors.transparent,
-                                      width: 2),
-                                ),
-                              ),
-                              alignment: Alignment.center,
-                              child: Text(
-                                c == 0 ? 'Product' : 'Category',
-                                style: controller.selectedChoice == c
-                                    ? regularTextStyle.copyWith(
-                                        color: darkSeaGreenColor,
-                                        fontWeight: FontWeight.w600)
-                                    : regularTextStyle.copyWith(
-                                        color: greyColor,
-                                      ),
+                    children: controller.pageWidget.asMap().entries.map(
+                      (index) {
+                        return InkWell(
+                          onTap: () => controller.onChoiceTapped(index.key),
+                          child: Container(
+                            width: 100,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                    color:
+                                        controller.selectedChoice == index.key
+                                            ? darkSeaGreenColor
+                                            : Colors.transparent,
+                                    width: 2),
                               ),
                             ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              index.key == 0 ? 'Product' : 'Category',
+                              style: controller.selectedChoice == index.key
+                                  ? regularTextStyle.copyWith(
+                                      color: darkSeaGreenColor,
+                                      fontWeight: FontWeight.w600)
+                                  : regularTextStyle.copyWith(color: greyColor),
+                            ),
                           ),
-                        )
-                        .toList(),
+                        );
+                      },
+                    ).toList(),
                   ),
                 ),
               ],
@@ -106,10 +96,7 @@ class ProductAdmin extends GetView<ProductAdminController> {
                 },
                 scrollDirection: Axis.horizontal,
                 controller: controller.pageController,
-                children: [
-                  ProductView(),
-                  CategoryView(),
-                ],
+                children: controller.pageWidget,
               ),
             ),
           ),

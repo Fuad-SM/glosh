@@ -9,7 +9,7 @@ class CartCard extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       primary: false,
-      itemCount: product.length - 3,
+      itemCount: product.length,
       itemBuilder: (context, index) {
         final CountCartController controller =
             Get.put(CountCartController(), tag: '$index');

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:glosh/common/routes/getx_route.dart';
 import 'package:glosh/common/routes/route_name.dart';
 import 'package:glosh/data/model/const.dart';
+import 'package:glosh/utils/dependency/getx_binding.dart';
 import 'package:glosh/utils/scroll_config.dart';
 
 Future<void> mainProgram() async {
@@ -11,6 +12,7 @@ Future<void> mainProgram() async {
   await Firebase.initializeApp();
   print(AppEnvironment.env);
   runApp(const GloshApp());
+  InjectController.doRegister();
 }
 
 class GloshApp extends StatelessWidget {

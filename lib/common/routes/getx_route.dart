@@ -9,6 +9,7 @@ class GetXRoute {
     GetPage(
         name: RouteName.getStartedRoute,
         page: () => const GetStartedScreen(),
+        binding: GetStartedBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
     GetPage(
@@ -26,6 +27,7 @@ class GetXRoute {
     GetPage(
         name: RouteName.navbarRoute,
         page: () => HomeBottomNavbar(),
+        binding: NavbarBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
     //

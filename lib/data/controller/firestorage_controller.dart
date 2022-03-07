@@ -2,7 +2,6 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:get/get.dart';
 
 class FireStorageController extends GetxController {
-  final downloadUrl = ''.obs;
   final isLoading = true.obs;
   List<String> listImage = [];
 

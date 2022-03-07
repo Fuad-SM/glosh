@@ -11,12 +11,14 @@ class CartScreen extends StatelessWidget {
         title: Text(
           'My Cart',
           style: regularTextStyle.copyWith(
-              color: whiteColor, fontWeight: FontWeight.w600),
+            color: whiteColor,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         centerTitle: true,
         backgroundColor: tealColor,
       ),
-      body: BodyCarts(),
+      body: BodyCart(),
     );
   }
 }
@@ -93,7 +95,7 @@ class BodyCarts extends StatelessWidget {
                                   regularTextStyle.copyWith(color: greyColor),
                             ),
                             TextSpan(
-                              text: '3',
+                              text: '${product.length}',
                               style: headerTxtStyle,
                             )
                           ],

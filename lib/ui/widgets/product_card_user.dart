@@ -3,6 +3,16 @@ part of 'widget.dart';
 class ProductCardUser extends StatelessWidget {
   const ProductCardUser({Key? key}) : super(key: key);
 
+  void _showTopShortToast() {
+    Fluttertoast.showToast(
+        msg: 'x item has been added to cart',
+        textColor: darkSeaGreenColor,
+        backgroundColor: lightGreenColor,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 1);
+  }
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -71,7 +81,7 @@ class ProductCardUser extends StatelessWidget {
                             borderRadius: BorderRadius.circular(19),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () => _showTopShortToast(),
                         child: Icon(
                           Icons.add,
                           size: 20,

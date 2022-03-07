@@ -13,12 +13,15 @@ class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _HomeAppBarState extends State<HomeAppBar> {
+  final controller = Get.find<NavbarController>();
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
       actions: [
         InkWell(
+          onTap: () => controller.pageController.jumpToPage(2),
           child: Icon(Iconsax.heart),
         ),
         SizedBox(width: 15),
