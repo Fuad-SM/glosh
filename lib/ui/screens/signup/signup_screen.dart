@@ -101,7 +101,7 @@ class SignUpScreen extends GetView<SignUpController> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Get.height * 0.06),
                 CustomElevatedBtn(onPressed: () {}, title: 'Sign Up'),
                 const SizedBox(height: 15),
                 Center(
@@ -125,57 +125,6 @@ class SignUpScreen extends GetView<SignUpController> {
                       ],
                     ),
                   ),
-                ),
-                const SizedBox(height: 25),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        color: greyColor,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'Or Sign Up with',
-                        style: regularTextStyle.copyWith(
-                            color: blackColor, fontWeight: FontWeight.w300),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        color: greyColor,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    for (var altSignUp in alternative)
-                      InkWell(
-                        child: Container(
-                          width: 60,
-                          height: 60,
-                          padding: EdgeInsets.all(13),
-                          margin: EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: whiteColor,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 1,
-                                blurRadius: 2,
-                                offset: Offset(1, 3),
-                              ),
-                            ],
-                          ),
-                          child: Image.asset(altSignUp),
-                        ),
-                      ),
-                  ],
                 ),
               ],
             ),

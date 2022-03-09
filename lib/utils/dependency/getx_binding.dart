@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:get/get.dart';
 import 'package:glosh/data/controller/firestorage_controller.dart';
 import 'package:glosh/ui/screens/screen.dart';

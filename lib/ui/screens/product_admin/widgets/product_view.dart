@@ -5,23 +5,26 @@ class ProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List _mocking = [1, 2, 3, 4, 5, 6, 7, 8];
     return Column(
       children: [
         Expanded(
           child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Column(
-                children: [
-                  Wrap(
-                    spacing: 10,
-                    runSpacing: 10,
-                    children:
-                        _mocking.map((mock) => ProductCardAdmin()).toList(),
-                  ),
-                ],
+            child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              primary: false,
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 15,
+                childAspectRatio: MediaQuery.of(context).size.width /
+                    (MediaQuery.of(context).size.height / 1.3),
               ),
+              itemCount: 8,
+              itemBuilder: (context, index) {
+                return ProductCardAdmin();
+              },
             ),
           ),
         ),
@@ -48,7 +51,7 @@ class ProductView extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: '${_mocking.length}',
+                          text: '8',
                           style: headerTxtStyle,
                         ),
                         TextSpan(
