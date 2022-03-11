@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:glosh/data/controller/book_category_controller.dart';
+import 'package:glosh/data/controller/book_controller.dart';
 import 'package:glosh/data/controller/firestorage_controller.dart';
 import 'package:glosh/ui/screens/screen.dart';
 import 'package:glosh/ui/widgets/widget.dart';
@@ -35,7 +35,7 @@ class NavbarBinding implements Bindings {
 class ProductBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => BookCategoryController());
+    Get.lazyPut(() => BookController());
   }
 }
 

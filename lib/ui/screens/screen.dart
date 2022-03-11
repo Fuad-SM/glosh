@@ -8,7 +8,9 @@ import 'package:glosh/common/animation/stagered_animation.dart';
 import 'package:glosh/common/routes/route_name.dart';
 import 'package:glosh/common/themes/theme.dart';
 import 'package:glosh/data/controller/book_category_controller.dart';
+import 'package:glosh/data/controller/book_controller.dart';
 import 'package:glosh/data/controller/firestorage_controller.dart';
+import 'package:glosh/data/model/book_model.dart';
 import 'package:glosh/data/model/const.dart';
 import 'package:glosh/data/model/product.dart';
 import 'package:glosh/ui/widgets/widget.dart';
@@ -69,5 +71,7 @@ part 'product_admin/widgets/category/card_category.dart';
 part 'product_admin/widgets/category/bottom_bar_category.dart';
 
 // Invalid Pages
-
 part 'invalid_pages.dart';
+
+// Detail Book
+part 'detail/detail_book.dart';

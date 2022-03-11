@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:glosh/common/routes/route_name.dart';
+import 'package:glosh/data/model/book_model.dart';
 import 'package:glosh/ui/screens/screen.dart';
 import 'package:glosh/ui/widgets/widget.dart';
 import 'package:glosh/utils/dependency/getx_binding.dart';
@@ -40,6 +41,11 @@ class GetXRoute {
         name: RouteName.productRoute,
         page: () => const ProductScreen(),
         binding: ProductBinding(),
+        transitionDuration: const Duration(milliseconds: 400),
+        transition: Transition.native),
+    GetPage(
+        name: RouteName.detailRoute,
+        page: () => DetailBookScreen(detailBook: Get.arguments as BookModel?),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
     GetPage(

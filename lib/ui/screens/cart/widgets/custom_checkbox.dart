@@ -1,7 +1,7 @@
 part of '../../screen.dart';
 
 class CustomCheckBox extends StatelessWidget {
-  final String tag;
+  final String tag; // respon
   const CustomCheckBox({required this.tag, Key? key}) : super(key: key);
 
   @override
@@ -17,6 +17,32 @@ class CustomCheckBox extends StatelessWidget {
         value: checkBox.check,
         onChanged: (bool? value) {
           checkBox.check = value!;
+
+          if (tag == 'all') {
+            for (int i = 0; i < product.length; i++) {
+              var generateNumber = Get.find<CheckBoxController>(tag: '$i');
+              generateNumber.check = value;
+            }
+          } else {
+            List<bool> checkAll = [];
+            for (int i = 0; i < product.length; i++) {
+              var generateNumber = Get.find<CheckBoxController>(tag: '$i');
+              checkAll.add(generateNumber.check);
+            }
+
+            print(checkAll);
+
+            if (checkAll.every((element) => element == true) &&
+                checkAll.length == product.length) {
+              var controller = Get.find<CheckBoxController>(tag: 'all');
+              controller.check = true;
+              print(controller.check);
+            } else {
+              var controller = Get.find<CheckBoxController>(tag: 'all');
+              controller.check = false;
+              print(controller.check);
+            }
+          }
         },
       ),
     );
