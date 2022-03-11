@@ -16,7 +16,10 @@ class CountCartController extends GetxController {
 
 class CheckBoxController extends GetxController {
   var _check = false.obs;
-
   set check(value) => this._check.value = value;
   get check => this._check.value;
+
+  void onSelected(bool value) {
+    _check.value = value;
+  }
 }

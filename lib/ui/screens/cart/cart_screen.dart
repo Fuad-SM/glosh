@@ -18,7 +18,7 @@ class CartScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: tealColor,
       ),
-      body: BodyCart(),
+      body: BodyCarts(),
     );
   }
 }
@@ -32,7 +32,8 @@ class BodyCarts extends StatelessWidget {
       children: [
         Container(
           color: lightGreenColor,
-          child: Column(
+          child: StaggeredAnimation(
+            verticalOffset: -20,
             children: [
               SizedBox(height: 10),
               Padding(
@@ -44,7 +45,7 @@ class BodyCarts extends StatelessWidget {
                       'Select All',
                       style: regularTextStyle.copyWith(color: Colors.black54),
                     ),
-                    const CustomCheckBox(tag: 'all')
+                    CustomCheckBox(tag: 'all')
                   ],
                 ),
               ),
@@ -52,106 +53,102 @@ class BodyCarts extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          height: MediaQuery.of(context).size.height * 0.65,
-          color: lightGreenColor,
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                CartCard(),
-              ],
+        Expanded(
+          child: Container(
+            width: Get.width,
+            color: lightGreenColor,
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: CartCard(),
             ),
           ),
         ),
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              color: whiteColor,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 1,
-                  offset: Offset(0, 2),
-                )
-              ],
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Qty ',
-                              style:
-                                  regularTextStyle.copyWith(color: greyColor),
-                            ),
-                            TextSpan(
-                              text: '${product.length}',
-                              style: headerTxtStyle,
-                            )
-                          ],
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Total ',
-                              style:
-                                  regularTextStyle.copyWith(color: greyColor),
-                            ),
-                            TextSpan(
-                              text: '\$5.99',
-                              style: headerTxtStyle,
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width / 3,
-                    height: MediaQuery.of(context).size.height * 0.06,
-                    child: ElevatedButton(
-                      onPressed: () => Get.toNamed(RouteName.checkoutRoute),
-                      style: ElevatedButton.styleFrom(
-                        primary: darkSeaGreenColor,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Container(
+          width: Get.width,
+          height: Get.height * 0.085,
+          decoration: BoxDecoration(
+            color: whiteColor,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 1,
+                offset: Offset(0, 2),
+              )
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RichText(
+                      text: TextSpan(
                         children: [
-                          Text(
-                            'Checkout',
-                            style: regularTextStyle.copyWith(
-                                color: whiteColor, fontWeight: FontWeight.w500),
+                          TextSpan(
+                            text: 'Qty ',
+                            style: regularTextStyle.copyWith(color: greyColor),
                           ),
-                          Icon(
-                            Iconsax.arrow_right_1,
-                            size: 20,
+                          TextSpan(
+                            text: '${product.length}',
+                            style: headerTxtStyle,
                           )
                         ],
                       ),
                     ),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Total ',
+                            style: regularTextStyle.copyWith(color: greyColor),
+                          ),
+                          TextSpan(
+                            text: '\$5.99',
+                            style: headerTxtStyle,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  child: ElevatedButton(
+                    onPressed: () => Get.toNamed(RouteName.checkoutRoute),
+                    style: ElevatedButton.styleFrom(
+                      primary: darkSeaGreenColor,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          'Checkout',
+                          style: regularTextStyle.copyWith(
+                              color: whiteColor, fontWeight: FontWeight.w500),
+                        ),
+                        Icon(
+                          Iconsax.arrow_right_1,
+                          size: 20,
+                        )
+                      ],
+                    ),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         )
       ],

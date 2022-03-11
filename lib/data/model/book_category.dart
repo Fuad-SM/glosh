@@ -29,8 +29,8 @@ class BookCategory {
         createdTime: json["createdTime"] == null ? null : json["createdTime"],
         id: json["id"] == null ? null : json["id"],
         name: json["name"] == null ? null : json["name"],
-        updatedBy: json["updatedBy"] == null ? null : json["updatedBy"],
-        updatedTime: json["updatedTime"] == null ? null : json["updatedTime"],
+        updatedBy: json["updatedBy"] == null ? ' ' : json["updatedBy"],
+        updatedTime: json["updatedTime"] == null ? ' ' : json["updatedTime"],
       );
 
   Map<String, dynamic> toJson() => {

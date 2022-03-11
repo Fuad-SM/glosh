@@ -39,6 +39,7 @@ class GetXRoute {
     GetPage(
         name: RouteName.productRoute,
         page: () => const ProductScreen(),
+        binding: ProductBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
     GetPage(

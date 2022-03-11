@@ -57,8 +57,8 @@ class BookModel {
             json["publicationDate"] == null ? null : json["publicationDate"],
         synopsis: json["synopsis"] == null ? null : json["synopsis"],
         title: json["title"] == null ? null : json["title"],
-        updatedBy: json["updatedBy"] == null ? null : json["updatedBy"],
-        updatedTime: json["updatedTime"] == null ? null : json["updatedTime"],
+        updatedBy: json["updatedBy"] == null ? '' : json["updatedBy"],
+        updatedTime: json["updatedTime"] == null ? '' : json["updatedTime"],
       );
 
   Map<String, dynamic> toJson() => {

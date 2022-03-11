@@ -1,3 +1,5 @@
+enum ResultState { Loading, Idle, NoData, HasData, Error }
+
 const List<String> menu = [
   'Surprise\nme!',
   'Manga',

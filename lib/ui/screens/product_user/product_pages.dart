@@ -24,7 +24,24 @@ class ProductScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
-        child: ProductCardUser(),
+        child: Column(
+          children: [
+            GetBuilder<BookCategoryController>(
+              builder: (controller) {
+                if (controller.state == ResultState.Loading) {
+                  return CircularProgressIndicator();
+                } else if (controller.state == ResultState.HasData) {
+                  return Text(controller.bookCategory[1].name);
+                } else if (controller.state == ResultState.Error) {
+                  return Text(controller.message);
+                } else {
+                  return SizedBox();
+                }
+              },
+            ),
+            ProductCardUser(),
+          ],
+        ),
       ),
     );
   }

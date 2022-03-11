@@ -21,7 +21,8 @@ class MyShopScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 23, vertical: 30),
-            child: Column(
+            child: StaggeredAnimation(
+              verticalOffset: -50,
               children: [
                 _custContainer(IdentityShop()),
                 SizedBox(height: 20),

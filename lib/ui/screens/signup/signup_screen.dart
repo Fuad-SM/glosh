@@ -10,7 +10,8 @@ class SignUpScreen extends GetView<SignUpController> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-            child: Column(
+            child: StaggeredAnimation(
+              verticalOffset: -50,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 30),

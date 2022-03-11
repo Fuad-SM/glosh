@@ -48,7 +48,8 @@ class GetStartedScreen extends GetView<GetStartController> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
-                child: Column(
+                child: StaggeredAnimation(
+                  verticalOffset: -50,
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

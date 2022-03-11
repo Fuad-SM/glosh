@@ -8,9 +8,19 @@ class ProductAdminController extends GetxController {
   void set selectedChoice(value) => this._selectedChoice.value = value;
   int get selectedChoice => this._selectedChoice.value;
 
-  final List<Widget> pageWidget = [
-    ProductView(),
-    CategoryView(),
+  late List<Widget> pageWidget = [
+    Column(
+      children: [
+        CardProduct(),
+        BottomBarProduct(),
+      ],
+    ),
+    Column(
+      children: [
+        CardCategory(),
+        BottomBarCategory(),
+      ],
+    ),
   ];
 
   void onChoiceTapped(int index) {
@@ -21,6 +31,9 @@ class ProductAdminController extends GetxController {
 
   @override
   void onInit() {
+    Get.put(BookCategoryController());
+    Get.put(ProductViewController());
+    Get.put(CategoryAddController());
     super.onInit();
   }
 
@@ -29,4 +42,16 @@ class ProductAdminController extends GetxController {
     super.onClose();
     _pageController.dispose();
   }
+}
+
+class ProductViewController extends GetxController {
+  var _select = false.obs;
+
+  set select(value) => this._select.value = value;
+  get select => this._select.value;
+
+  var _selected = false.obs;
+
+  set selected(value) => this._selected.value = value;
+  get selected => this._selected.value;
 }

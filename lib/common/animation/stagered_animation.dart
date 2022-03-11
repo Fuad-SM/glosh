@@ -3,25 +3,33 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class StaggeredAnimation extends StatelessWidget {
   const StaggeredAnimation(
-      {required this.offset,
+      {this.verticalOffset = 0,
+      this.horizontalOffset = 0,
       required this.children,
-      required this.mainAxisAlignment,
+      this.duration = 375,
+      this.mainAxisAlignment = MainAxisAlignment.start,
+      this.crossAxisAlignment = CrossAxisAlignment.center,
       Key? key})
       : super(key: key);
 
   final List<Widget> children;
-  final double? offset;
+  final double? verticalOffset;
+  final double? horizontalOffset;
+  final int duration;
   final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return AnimationLimiter(
       child: Column(
         mainAxisAlignment: mainAxisAlignment,
+        crossAxisAlignment: crossAxisAlignment,
         children: AnimationConfiguration.toStaggeredList(
-            duration: const Duration(milliseconds: 400),
+            duration: Duration(milliseconds: duration),
             childAnimationBuilder: (widget) => SlideAnimation(
-                  verticalOffset: offset,
+                  verticalOffset: verticalOffset,
+                  horizontalOffset: horizontalOffset,
                   curve: Curves.easeIn,
                   child: FadeInAnimation(
                     child: widget,

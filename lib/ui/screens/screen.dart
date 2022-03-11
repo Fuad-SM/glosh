@@ -2,9 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
+import 'package:glosh/common/animation/stagered_animation.dart';
 import 'package:glosh/common/routes/route_name.dart';
 import 'package:glosh/common/themes/theme.dart';
+import 'package:glosh/data/controller/book_category_controller.dart';
 import 'package:glosh/data/controller/firestorage_controller.dart';
 import 'package:glosh/data/model/const.dart';
 import 'package:glosh/data/model/product.dart';
@@ -34,7 +37,7 @@ part 'home/widgets/promo_card.dart';
 part 'home/home_pages.dart';
 
 // Product User
-part 'product/product_pages.dart';
+part 'product_user/product_pages.dart';
 
 // Cart
 part 'cart/controller/cart_controller.dart';
@@ -57,9 +60,13 @@ part 'myshop/myshop_screen.dart';
 
 // Product Admin
 part 'product_admin/product_admin.dart';
-part 'product_admin/controller/page_view_controller.dart';
-part 'product_admin/widgets/product_view.dart';
-part 'product_admin/widgets/category_view.dart';
+part 'product_admin/controller/product_admin_controller.dart';
+part 'product_admin/controller/modal_bottom_controller.dart';
+part 'product_admin/widgets/product/card_product.dart';
+part 'product_admin/widgets/product/bottom_bar_product.dart';
+part 'product_admin/widgets/category/modal_bottom_category.dart';
+part 'product_admin/widgets/category/card_category.dart';
+part 'product_admin/widgets/category/bottom_bar_category.dart';
 
 // Invalid Pages
 

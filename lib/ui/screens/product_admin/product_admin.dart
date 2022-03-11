@@ -6,6 +6,7 @@ class ProductAdmin extends GetView<ProductAdminController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: lightGreenColor,
       appBar: AppBar(
         elevation: 0,
         title: Text(
@@ -23,7 +24,8 @@ class ProductAdmin extends GetView<ProductAdminController> {
             alignment: Alignment.center,
             width: Get.width,
             height: Get.height * 0.13,
-            child: Column(
+            child: StaggeredAnimation(
+              verticalOffset: -20,
               children: [
                 TextField(
                   enabled: false,
@@ -53,7 +55,7 @@ class ProductAdmin extends GetView<ProductAdminController> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: controller.pageWidget.asMap().entries.map(
                       (index) {
-                        return InkWell(
+                        return GestureDetector(
                           onTap: () => controller.onChoiceTapped(index.key),
                           child: Container(
                             width: 100,

@@ -6,9 +6,9 @@ class PasswordController extends GetxController {
   var _hasPasswordOneNumber = false.obs;
   var _hasPasswordOneSpecialCharacter = false.obs;
 
-  void set passwordVisible(value) => this._passwordVisible = value;
+  void set passwordVisible(value) => this._passwordVisible.value = value;
   void set isPasswordEightCharacters(value) =>
-      this._isPasswordEightCharacters = value;
+      this._isPasswordEightCharacters.value = value;
   void set hasPasswordOneNumber(value) =>
       this._hasPasswordOneNumber.value = value;
   void set hasPasswordOneSpecialCharacter(value) =>
