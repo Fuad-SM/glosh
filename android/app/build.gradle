@@ -67,7 +67,7 @@ android {
             applicationIdSuffix '.dev'
             versionNameSuffix '-DEV'
             manifestPlaceholders = [
-                    appName: 'Aplikasi Dev',
+                    appName: 'Glosh Admin',
             ]
         }
         prod {
