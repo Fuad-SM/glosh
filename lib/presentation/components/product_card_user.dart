@@ -19,8 +19,7 @@ class ProductCardUser extends GetView<ProductAdminController> {
         ),
         itemCount: controller.productAdmin.products?.length,
         itemBuilder: (context, index) {
-          final product = controller.productAdmin.products?[index];
-          final images = product?.images?[index];
+          final product = controller.productAdmin.products![index];
           return AnimationConfiguration.staggeredGrid(
             position: index,
             columnCount: 2,
@@ -42,7 +41,7 @@ class ProductCardUser extends GetView<ProductAdminController> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: ImageView(
-                                urlImage: images!.url!,
+                                urlImage: product.thumbnail!,
                                 width: Get.width,
                                 height: Get.height * 0.15),
                           ),
@@ -59,7 +58,7 @@ class ProductCardUser extends GetView<ProductAdminController> {
                                 Expanded(
                                   child: SizedBox(
                                     child: Text(
-                                      "book.title",
+                                      product.title!,
                                       style: CardStyle.titleTxtstyle,
                                     ),
                                   ),
@@ -77,7 +76,7 @@ class ProductCardUser extends GetView<ProductAdminController> {
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: Text(
-                                    "book.bookCategory!.name",
+                                    "product.tags",
                                     style: CardStyle.categoryTxtstyle,
                                   ),
                                 ),

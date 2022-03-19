@@ -1,30 +1,41 @@
 part of '../../../core.dart';
 
 class PreferencesHelper {
-  final Future<SharedPreferences> sharedPreferences;
-  PreferencesHelper({required this.sharedPreferences});
+  static String env = '${AppEnvironment.env}';
+  static String emailKey = 'EMAIL$env';
+  static String passwordKey = 'PASSWORD$env';
+  static String startingKey = 'START$env';
+  final sharedPreferences = SharedPreferences.getInstance();
 
-  static String preferencesRestaurant = 'DAILY_RESTAURANT';
-
-  Future<bool> get isDailyRestaurantActive async {
+  Future<String?> getEmail() async {
     final prefs = await sharedPreferences;
-    return prefs.getBool(preferencesRestaurant) ?? false;
+    return prefs.getString(emailKey) ?? '';
   }
 
-  void setDailyRestaurant(bool value) async {
+  Future<String?> getPassword() async {
     final prefs = await sharedPreferences;
-    prefs.setBool(preferencesRestaurant, value);
+    return prefs.getString(passwordKey) ?? '';
   }
 
-  static String preferencesStarted = '/';
-
-  Future<String?> get markPageStarted async {
+  Future<bool?> getStart() async {
     final prefs = await sharedPreferences;
-    return prefs.getString(preferencesStarted) ?? RouteName.getStartedRoute;
+    return prefs.getBool(startingKey) ?? false;
   }
 
-  void setPageStarted(String value) async {
+  saveStart(bool check) async {
     final prefs = await sharedPreferences;
-    prefs.setString(preferencesStarted, value);
+    prefs.setBool(startingKey, check);
+  }
+
+  saveUserLogin(String email, String password) async {
+    final prefs = await sharedPreferences;
+    prefs.setString(emailKey, email);
+    prefs.setString(passwordKey, password);
+  }
+
+  deleteUser() async {
+    final prefs = await sharedPreferences;
+    prefs.remove(emailKey);
+    prefs.remove(passwordKey);
   }
 }

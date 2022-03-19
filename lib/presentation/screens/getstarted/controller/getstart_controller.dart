@@ -2,8 +2,8 @@ part of '../../screen.dart';
 
 class GetStartController extends GetxController {
   var _current = 0.obs;
-  void set current(value) => this._current.value = value;
-  int get current => this._current.value;
+  void set current(value) => _current.value = value;
+  int get current => _current.value;
 
   final List<String> image = [
     'assets/images/getstart1.jpg',
@@ -23,5 +23,11 @@ class GetStartController extends GetxController {
   void onClose() {
     super.onClose();
     _carouselController = CarouselController();
+  }
+
+  Future<void> saveStart() async {
+    var check = true;
+    PreferencesHelper().saveStart(check);
+    Get.offAllNamed(GetXRoute.loginRouteName);
   }
 }

@@ -12,16 +12,12 @@ class NavbarController extends GetxController {
     HomeScreen(),
     CartScreen(),
     InvalidScreen(),
-    AppEnvironment.env == 'prod' ? InvalidScreen() : MyShopScreen(),
   ];
 
   final List<Navbar> navbarItem = [
     Navbar(icon: Icon(Iconsax.home), text: 'Home'),
     Navbar(icon: Icon(Iconsax.shopping_bag), text: 'My Cart'),
-    Navbar(icon: Icon(Iconsax.lovely), text: 'Favorite'),
-    AppEnvironment.env == 'prod'
-        ? Navbar(icon: Icon(Iconsax.setting), text: 'Setting')
-        : Navbar(icon: Icon(Iconsax.shop), text: 'My Shop'),
+    Navbar(icon: Icon(Iconsax.setting), text: 'Setting')
   ];
 
   void onItemTapped(int index) {

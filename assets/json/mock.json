@@ -1,0 +1,164 @@
+{
+    "id": "prod_01F0YESHQ27Y31CAMD0NV6W9YP",
+    "title": "Test product",
+    "subtitle": null,
+    "description": "test-product-description",
+    "handle": "test-product",
+    "is_giftcard": false,
+    "images": [],
+    "thumbnail": null,
+    "options": [
+      {
+        "id": "opt_01F0YESHQBZVKCEXJ24BS6PCX3",
+        "title": "size",
+        "product_id": "prod_01F0YESHQ27Y31CAMD0NV6W9YP",
+        "created_at": "2021-03-16T21:24:13.657Z",
+        "updated_at": "2021-03-16T21:24:13.657Z",
+        "deleted_at": null,
+        "metadata": null
+      },
+      {
+        "id": "opt_01F0YESHQBV8MMNN4V7WSDMH6G",
+        "title": "color",
+        "product_id": "prod_01F0YESHQ27Y31CAMD0NV6W9YP",
+        "created_at": "2021-03-16T21:24:13.657Z",
+        "updated_at": "2021-03-16T21:24:13.657Z",
+        "deleted_at": null,
+        "metadata": null
+      }
+    ],
+    "variants": [
+      {
+        "id": "variant_01F0YESHR7P2YAYBDBY5B6X3PK",
+        "title": "Test variant",
+        "product_id": "prod_01F0YESHQ27Y31CAMD0NV6W9YP",
+        "product": {
+          "id": "prod_01F0YESHQ27Y31CAMD0NV6W9YP",
+          "title": "Test product",
+          "subtitle": null,
+          "description": "test-product-description",
+          "handle": "test-product",
+          "is_giftcard": false,
+          "thumbnail": null,
+          "profile_id": "sp_01F0YESHMKRB4V3B7F6MVQHGNN",
+          "weight": null,
+          "length": null,
+          "height": null,
+          "width": null,
+          "hs_code": null,
+          "origin_country": null,
+          "mid_code": null,
+          "material": null,
+          "collection_id": "test-collection",
+          "type_id": "test-type",
+          "created_at": "2021-03-16T21:24:13.657Z",
+          "updated_at": "2021-03-16T21:24:13.657Z",
+          "deleted_at": null,
+          "metadata": null
+        },
+        "prices": [
+          {
+            "id": "ma_01F0YESHRFQNH5S8Q0PK84YYZN",
+            "currency_code": "usd",
+            "amount": 100,
+            "sale_amount": null,
+            "variant_id": "variant_01F0YESHR7P2YAYBDBY5B6X3PK",
+            "region_id": null,
+            "created_at": "2021-03-16T21:24:13.657Z",
+            "updated_at": "2021-03-16T21:24:13.657Z",
+            "deleted_at": null
+          }
+        ],
+        "sku": null,
+        "barcode": null,
+        "ean": null,
+        "upc": null,
+        "inventory_quantity": 10,
+        "allow_backorder": false,
+        "manage_inventory": true,
+        "hs_code": null,
+        "origin_country": null,
+        "mid_code": null,
+        "material": null,
+        "weight": null,
+        "length": null,
+        "height": null,
+        "width": null,
+        "options": [
+          {
+            "id": "optval_01F0YESHR7S6ECD03RF6W12DSJ",
+            "value": "large",
+            "option_id": "opt_01F0YESHQBZVKCEXJ24BS6PCX3",
+            "variant_id": "variant_01F0YESHR7P2YAYBDBY5B6X3PK",
+            "created_at": "2021-03-16T21:24:13.657Z",
+            "updated_at": "2021-03-16T21:24:13.657Z",
+            "deleted_at": null,
+            "metadata": null
+          },
+          {
+            "id": "optval_01F0YESHR7N2GHM1RN3GKYPN6P",
+            "value": "green",
+            "option_id": "opt_01F0YESHQBV8MMNN4V7WSDMH6G",
+            "variant_id": "variant_01F0YESHR7P2YAYBDBY5B6X3PK",
+            "created_at": "2021-03-16T21:24:13.657Z",
+            "updated_at": "2021-03-16T21:24:13.657Z",
+            "deleted_at": null,
+            "metadata": null
+          }
+        ],
+        "created_at": "2021-03-16T21:24:13.657Z",
+        "updated_at": "2021-03-16T21:24:13.657Z",
+        "deleted_at": null,
+        "metadata": null
+      }
+    ],
+    "profile_id": "sp_01F0YESHMKRB4V3B7F6MVQHGNN",
+    "weight": null,
+    "length": null,
+    "height": null,
+    "width": null,
+    "hs_code": null,
+    "origin_country": null,
+    "mid_code": null,
+    "material": null,
+    "collection_id": "test-collection",
+    "collection": {
+      "id": "test-collection",
+      "title": "Test collection",
+      "handle": null,
+      "created_at": "2021-03-16T21:24:13.603Z",
+      "updated_at": "2021-03-16T21:24:13.603Z",
+      "deleted_at": null,
+      "metadata": null
+    },
+    "type_id": "test-type",
+    "type": {
+      "id": "test-type",
+      "value": "test-type",
+      "created_at": "2021-03-16T21:24:13.613Z",
+      "updated_at": "2021-03-16T21:24:13.613Z",
+      "deleted_at": null,
+      "metadata": null
+    },
+    "tags": [
+      {
+        "id": "tag1",
+        "value": "123",
+        "created_at": "2021-03-16T21:24:13.609Z",
+        "updated_at": "2021-03-16T21:24:13.609Z",
+        "deleted_at": null,
+        "metadata": null
+      },
+      {
+        "id": "ptag_01F0YESHPZYY3H4SJ3A5918SBN",
+        "value": "456",
+        "created_at": "2021-03-16T21:24:13.657Z",
+        "updated_at": "2021-03-16T21:24:13.657Z",
+        "deleted_at": null,
+        "metadata": null
+      }
+    ],
+    "created_at": "2021-03-16T21:24:13.657Z",
+    "updated_at": "2021-03-16T21:24:13.657Z",
+    "metadata": null
+  }

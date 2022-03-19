@@ -72,7 +72,10 @@ class LoginScreen extends GetView<LoginController> {
                 SizedBox(height: Get.height * 0.3),
                 CustomElevatedBtn(
                   onPressed: () {
-                    controller.submit(context);
+                    AppEnvironment.env == 'dev'
+                        ? Get.offAndToNamed(GetXRoute.homeAdminRouteName)
+                        : Get.offAndToNamed(GetXRoute.homeUserRouteName);
+                    // controller.submit(context);
                   },
                   title: 'Login',
                 ),
@@ -94,7 +97,7 @@ class LoginScreen extends GetView<LoginController> {
                               decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Get.toNamed(RouteName.signUpRoute);
+                              Get.toNamed(GetXRoute.signUpRouteName);
                               controller.clear();
                             },
                         ),

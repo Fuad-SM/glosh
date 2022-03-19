@@ -2,7 +2,6 @@ import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
-import 'package:glosh/core/app_environment.dart';
 import 'package:glosh/data/controller/admin/product_admin_controller.dart';
 import 'package:glosh/presentation/screens/screen.dart';
 import 'package:glosh/presentation/themes/theme.dart';

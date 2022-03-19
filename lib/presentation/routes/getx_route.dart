@@ -1,44 +1,62 @@
 import 'package:get/get.dart';
 import 'package:glosh/core/core.dart';
 import 'package:glosh/presentation/components/component.dart';
-import 'package:glosh/presentation/routes/route_name.dart';
 import 'package:glosh/presentation/screens/screen.dart';
 
 class GetXRoute {
-  static final List<GetPage> routes = [
+  // Route Name
+  static const String startedRouteName = '/';
+  static const String getStartedRouteName = '/getStarted';
+  static const String loginRouteName = '/login';
+  static const String signUpRouteName = '/signUp';
+
+  // User Part
+  static const String homeUserRouteName = '/homeUser';
+  static const String productUserRouteName = '/productUser';
+  static const String detailRouteName = '/detail';
+  static const String checkoutRouteName = '/check';
+
+  // Admin Part
+  static const String homeAdminRouteName = '/homeAdmin';
+  static const String productAdminRouteName = '/productAdmin';
+
+  // Page Route
+  static final List<GetPage> getPageRoutes = [
     GetPage(
-        name: RouteName.getStartedRoute,
+        name: startedRouteName,
+        page: () => const StartedScreen(),
+        binding: StartedBinding(),
+        transitionDuration: const Duration(milliseconds: 400),
+        transition: Transition.native),
+    GetPage(
+        name: getStartedRouteName,
         page: () => const GetStartedScreen(),
         binding: GetStartedBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
     GetPage(
-        name: RouteName.loginRoute,
+        name: loginRouteName,
         page: () => const LoginScreen(),
         binding: LoginBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
     GetPage(
-        name: RouteName.signUpRoute,
+        name: signUpRouteName,
         page: () => const SignUpScreen(),
         binding: SignUpBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
+
+    // User Part
     GetPage(
-        name: RouteName.navbarRoute,
+        name: homeUserRouteName,
         page: () => HomeBottomNavbar(),
         binding: NavbarBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
-    //
     GetPage(
-        name: RouteName.homeRoute,
-        page: () => const HomeScreen(),
-        transitionDuration: const Duration(milliseconds: 400),
-        transition: Transition.native),
-    GetPage(
-        name: RouteName.productRoute,
-        page: () => const ProductScreen(),
+        name: productUserRouteName,
+        page: () => const ProductUserScreen(),
         binding: ProductBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
@@ -49,19 +67,20 @@ class GetXRoute {
     //     transitionDuration: const Duration(milliseconds: 400),
     //     transition: Transition.native),
     GetPage(
-        name: RouteName.cartRoute,
-        page: () => const CartScreen(),
-        transitionDuration: const Duration(milliseconds: 400),
-        transition: Transition.native),
-    GetPage(
-        name: RouteName.checkoutRoute,
+        name: checkoutRouteName,
         page: () => const CheckoutScreen(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
-    //
+
+    // Admin Part
     GetPage(
-        name: RouteName.productAdminRoute,
-        page: () => const ProductAdmin(),
+        name: homeAdminRouteName,
+        page: () => const HomeAdminScreen(),
+        transitionDuration: const Duration(milliseconds: 400),
+        transition: Transition.native),
+    GetPage(
+        name: productAdminRouteName,
+        page: () => const ProductAdminScreen(),
         binding: ProductAdminBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),

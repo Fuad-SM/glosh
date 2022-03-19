@@ -5,33 +5,47 @@ import 'package:dio/dio.dart';
 import 'package:glosh/core/app_environment.dart';
 import 'package:glosh/core/core.dart';
 import 'package:glosh/data/model/admin/auth_body.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:cookie_jar/cookie_jar.dart';
 
 class UserRepositories {
-  static final Dio dio = Dio(BaseOptions(
-    baseUrl: AppEnvironment.baseUrl,
-  ));
-
   static Future<Either<String, String>> login(
       {required String email, required String password}) async {
+    final dio = Dio(BaseOptions(baseUrl: AppEnvironment.baseUrl));
+    // final dio = Dio(
+    //   BaseOptions(baseUrl: 'http://mobileapi.cilsy.id:9000/admin'),
+    // );
+    final cookieJar = CookieJar();
     final body = AuthBody(email: email, password: password);
 
     Response? response;
     Options options = Options(headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer  "
+      "Accept": "application/json",
     });
+
+    dio.interceptors.add(CookieManager(cookieJar));
 
     try {
       response = await dio.post(
-        'http://mobileapi.cilsy.id:9000/admin/auth',
+        '/auth',
         options: options,
         data: authBodyToJson(body),
       );
 
-      var _token = jsonDecode(response.toString())['api_token'];
+      // Save Token
+      var _responseData = jsonDecode(response.toString());
+      var _token = _responseData['api_token'];
       SecureStorageHelper().saveToken(_token);
 
-      return right("login sukses, token = $_token");
+      // Save Cookie
+      var _loadCookie = await cookieJar.loadForRequest(
+        Uri.parse(AppEnvironment.baseUrl + '/auth'),
+      );
+      var _cookie = convertCookieToString(_loadCookie);
+      SecureStorageHelper().saveCookie(_cookie);
+
+      return right("login sukses, token = $_token dan cookie = $_cookie");
     } on DioError catch (e) {
       String _message = '';
       switch (e.type) {
@@ -41,7 +55,7 @@ class UserRepositories {
           _message = 'The connection has timed out';
           break;
         case DioErrorType.other:
-          _message = 'No internet connection detected';
+          _message = 'No internet connection detected $e';
           break;
         case DioErrorType.response:
           switch (e.response!.statusCode) {

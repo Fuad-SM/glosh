@@ -97,8 +97,7 @@ class GetStartedScreen extends GetView<GetStartController> {
                           height: 50,
                           width: MediaQuery.of(context).size.width / 2,
                           child: ElevatedButton(
-                            onPressed: () =>
-                                Get.offAllNamed(RouteName.loginRoute),
+                            onPressed: () => controller.saveStart(),
                             style: ElevatedButton.styleFrom(
                               primary: whiteColor,
                               shape: RoundedRectangleBorder(

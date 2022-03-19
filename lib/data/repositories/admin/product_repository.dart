@@ -1,27 +1,32 @@
 import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:glosh/core/app_environment.dart';
 import 'package:glosh/core/core.dart';
 import 'package:glosh/data/model/admin/product.dart';
 
 class ProductRepositories {
   static Future<Either<String, Product>> getAllProduct() async {
-    Dio dio = Dio();
+    Dio dio = Dio(BaseOptions(baseUrl: AppEnvironment.baseUrl));
     Response? response;
     final String? token = await SecureStorageHelper().readToken();
-    Options options = Options(headers: {"Authorization": "Bearer $token"});
-    // log(token);
+    final String? cookie = await SecureStorageHelper().readCookie();
+    print('token yang disimpan $token');
+    Options options = Options(headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Authorization": "Bearer $token",
+      "Cookie": "$cookie"
+    });
 
     try {
       response = await dio.get(
-        'http://mobileapi.cilsy.id:9000/admin/products',
+        '/products',
         options: options,
       );
 
-      Product jsonsData = response.data;
-      // ProductElement listBook =
-      //     jsonsData.map((item) => ProductElement.fromJson(item)).toList();
-      print(jsonsData);
+      Product jsonsData = Product.fromJson(response.data);
+
       return right(jsonsData);
     } on DioError catch (e) {
       String _message = '';

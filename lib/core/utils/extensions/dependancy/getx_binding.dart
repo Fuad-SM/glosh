@@ -1,5 +1,14 @@
 part of '../../../core.dart';
 
+class StartedBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => StartedController());
+    Get.lazyPut(() => GetStartController());
+    Get.lazyPut(() => LoginController());
+  }
+}
+
 class GetStartedBinding implements Bindings {
   @override
   void dependencies() {

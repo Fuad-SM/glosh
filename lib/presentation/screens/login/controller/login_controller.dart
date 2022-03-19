@@ -1,13 +1,21 @@
 part of '../../screen.dart';
 
 class LoginController extends GetxController {
+  //
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   FocusNode _emailFocusNode = FocusNode();
   FocusNode _passwordFocusNode = FocusNode();
-
   var _isLoading = false.obs;
+  var _message = ''.obs;
+
+  // Getter
+  TextEditingController get emailController => _emailController;
+  TextEditingController get passwordController => _passwordController;
+  FocusNode get emailFocusNode => _emailFocusNode;
+  FocusNode get passwordFocusNode => _passwordFocusNode;
   bool get isLoading => this._isLoading.value;
+  String get message => _message.value;
 
   @override
   void onInit() {
@@ -25,14 +33,6 @@ class LoginController extends GetxController {
     _emailController.clear();
     _passwordController.clear();
   }
-
-  TextEditingController get emailController => _emailController;
-  TextEditingController get passwordController => _passwordController;
-  FocusNode get emailFocusNode => _emailFocusNode;
-  FocusNode get passwordFocusNode => _passwordFocusNode;
-
-  var _message = ''.obs;
-  String get message => _message.value;
 
   void submit(BuildContext context) async {
     _isLoading.value = true;
@@ -58,12 +58,10 @@ class LoginController extends GetxController {
     final loginResponse =
         await UserRepositories.login(email: email, password: password);
     Get.back();
-    update();
 
     loginResponse.fold(
-      (left) async {
+      (left) {
         _isLoading.value = false;
-        update();
         // switch (left) {
         //   case 'Login Failed':
         //     break;
@@ -72,22 +70,24 @@ class LoginController extends GetxController {
         CoolAlert.show(
           context: context,
           type: CoolAlertType.warning,
-          title: 'Success',
+          title: 'Failed',
           text: 'Login Failed',
         );
+        print(left);
       },
       (right) async {
         _isLoading.value = false;
-        clear();
-        print(right);
-        update();
-        Get.offAndToNamed(RouteName.navbarRoute);
-        await CoolAlert.show(
+        PreferencesHelper().saveUserLogin(email, password);
+        AppEnvironment.env == 'dev'
+            ? Get.offAndToNamed(GetXRoute.homeAdminRouteName)
+            : Get.offAndToNamed(GetXRoute.homeUserRouteName);
+        CoolAlert.show(
           context: context,
           type: CoolAlertType.success,
           title: 'Success',
           text: 'Login Success',
         );
+        print(right);
       },
     );
   }

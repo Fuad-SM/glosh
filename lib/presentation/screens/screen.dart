@@ -5,17 +5,22 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
+import 'package:glosh/core/app_environment.dart';
 import 'package:glosh/core/core.dart';
 import 'package:glosh/core/utils/constanta.dart';
 import 'package:glosh/data/controller/admin/product_admin_controller.dart';
 import 'package:glosh/data/repositories/admin/auth_repository.dart';
 import 'package:glosh/presentation/animation/stagered_animation.dart';
 import 'package:glosh/presentation/components/component.dart';
-import 'package:glosh/presentation/routes/route_name.dart';
+import 'package:glosh/presentation/routes/getx_route.dart';
 import 'package:glosh/presentation/themes/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
+
+// Started
+part 'start/started_screen.dart';
+part 'start/controller/started_controller.dart';
 
 // GetStarted
 part 'getstarted/getstarted_screen.dart';
@@ -30,50 +35,54 @@ part 'signup/controller/signup_controller.dart';
 part 'signup/widgets/password_validation.dart';
 part 'signup/signup_screen.dart';
 
+// Part User
+
 // Home
-part 'home/widgets/deliver_card.dart';
-part 'home/widgets/home_appbar.dart';
-part 'home/widgets/menu_card.dart';
-part 'home/widgets/promo_card.dart';
-part 'home/home_pages.dart';
+part 'user/home/widgets/deliver_card.dart';
+part 'user/home/widgets/home_appbar.dart';
+part 'user/home/widgets/menu_card.dart';
+part 'user/home/widgets/promo_card.dart';
+part 'user/home/home_pages.dart';
 
 // Product User
-part 'product_user/product_pages.dart';
+part 'user/product_user/product_user_screen.dart';
 
 // Cart
-part 'cart/controller/cart_controller.dart';
-part 'cart/widgets/cart_card.dart';
-part 'cart/widgets/custom_checkbox.dart';
-part 'cart/cart_screen.dart';
+part 'user/cart/controller/cart_controller.dart';
+part 'user/cart/widgets/cart_card.dart';
+part 'user/cart/widgets/custom_checkbox.dart';
+part 'user/cart/cart_screen.dart';
 
 // CheckOut
-part 'checkout/widgets/checkout_card.dart';
-// part 'checkout/widgets/checkout_container.dart';
-part 'checkout/widgets/custom_outlined_btn.dart';
-part 'checkout/checkout_pages.dart';
-
-// MyShop
-part 'myshop/widgets/buyer_shop.dart';
-part 'myshop/widgets/identity_shop.dart';
-part 'myshop/widgets/product_shop.dart';
-part 'myshop/widgets/purchase_history.dart';
-part 'myshop/myshop_screen.dart';
-
-// Product Admin
-part 'product_admin/product_admin.dart';
-part 'product_admin/controller/product_admin_controller.dart';
-part 'product_admin/controller/modal_bottom_controller.dart';
-part 'product_admin/widgets/product/card_product.dart';
-part 'product_admin/widgets/product/bottom_bar_product.dart';
-part 'product_admin/widgets/category/modal_bottom_category.dart';
-part 'product_admin/widgets/category/card_category.dart';
-part 'product_admin/widgets/category/bottom_bar_category.dart';
+part 'user/checkout/widgets/checkout_card.dart';
+part 'user/checkout/widgets/checkout_container.dart';
+part 'user/checkout/widgets/custom_outlined_btn.dart';
+part 'user/checkout/checkout_pages.dart';
 
 // Invalid Pages
 part 'invalid_pages.dart';
 
 // Detail Book
-part 'detail/detail_book.dart';
-part 'detail/widgets/bottom_bar_detail.dart';
-part 'detail/widgets/detail_appbar.dart';
-part 'detail/controller/detail_controller.dart';
+part 'user/detail/detail_book.dart';
+part 'user/detail/widgets/bottom_bar_detail.dart';
+part 'user/detail/widgets/detail_appbar.dart';
+part 'user/detail/controller/detail_controller.dart';
+
+// Part Admin
+
+// Home
+part 'admin/home/home_admin_screen.dart';
+part 'admin/home/widgets/buyer_shop.dart';
+part 'admin/home/widgets/identity_shop.dart';
+part 'admin/home/widgets/product_shop.dart';
+part 'admin/home/widgets/purchase_history.dart';
+
+// Product
+part 'admin/product_admin/product_admin_screen.dart';
+part 'admin/product_admin/controller/modal_bottom_controller.dart';
+part 'admin/product_admin/controller/product_admin_controller.dart';
+part 'admin/product_admin/widgets/category/bottom_bar_category.dart';
+part 'admin/product_admin/widgets/category/card_category.dart';
+part 'admin/product_admin/widgets/category/modal_bottom_category.dart';
+part 'admin/product_admin/widgets/product/bottom_bar_product.dart';
+part 'admin/product_admin/widgets/product/card_product.dart';

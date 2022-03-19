@@ -27,3 +27,12 @@ String convertToChatTime(DateTime time) {
   String formatted = formatter.format(time);
   return formatted;
 }
+
+// convert cookie to String
+String convertCookieToString(List<Cookie> cookie) {
+  var convertToListString = cookie.map((e) => e.toString()).toList();
+  var getCookie = convertToListString[0].toString().split(' ');
+  var convertToString = getCookie[0].split('');
+  convertToString.removeLast();
+  return convertToString.join();
+}
