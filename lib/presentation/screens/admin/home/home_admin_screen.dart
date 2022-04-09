@@ -14,6 +14,35 @@ class HomeAdminScreen extends StatelessWidget {
           style: regularTextStyle.copyWith(
               color: whiteColor, fontWeight: FontWeight.w600),
         ),
+        actions: [
+          PopupMenuButton(
+            offset: const Offset(-10, 50),
+            icon: Icon(
+              Icons.menu,
+              color: whiteColor,
+            ),
+            color: whiteColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  child: SizedBox(
+                    width: Get.width * 0.2,
+                    child: TextButton(
+                      onPressed: () async {
+                        PreferencesHelper().deleteUser();
+                        Get.offAllNamed(GetXRoute.loginRouteName);
+                      },
+                      child: Text('Logout'),
+                    ),
+                  ),
+                ),
+              ];
+            },
+          ),
+        ],
         centerTitle: true,
         backgroundColor: tealColor,
       ),

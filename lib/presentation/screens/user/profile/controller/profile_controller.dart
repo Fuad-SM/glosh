@@ -1,6 +1,6 @@
 part of '../../../screen.dart';
 
-class CategoryAddController extends GetxController {
+class ProfileController extends GetxController {
   var _isLoading = false.obs;
   void set isLoading(value) => _isLoading.value = value;
   bool get isLoading => _isLoading.value;

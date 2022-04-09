@@ -8,20 +8,7 @@ class ProductAdminUIController extends GetxController {
   void set selectedChoice(value) => this._selectedChoice.value = value;
   int get selectedChoice => this._selectedChoice.value;
 
-  late List<Widget> pageWidget = [
-    Column(
-      children: [
-        CardProduct(),
-        BottomBarProduct(),
-      ],
-    ),
-    Column(
-      children: [
-        // CardCategory(),
-        // BottomBarCategory(),
-      ],
-    ),
-  ];
+  final collection = Get.put(CollectionAdminController());
 
   void onChoiceTapped(int index) {
     _selectedChoice.value = index;
@@ -33,6 +20,7 @@ class ProductAdminUIController extends GetxController {
   void onInit() {
     Get.put(ProductViewController());
     Get.put(CategoryAddController());
+    collection;
     super.onInit();
   }
 

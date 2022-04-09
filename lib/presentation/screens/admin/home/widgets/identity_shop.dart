@@ -27,11 +27,28 @@ class IdentityShop extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        'Nama Toko',
-                        style: header2TxtStyle.copyWith(
-                          color: darkSeaGreenColor,
-                        ),
+                      GetBuilder<StoreAdminController>(
+                        builder: (controller) {
+                          if (controller.state == ResultState.Loading) {
+                            return SizedBox(
+                              height: 14,
+                              child: ResultStateAlert.loading(context),
+                            );
+                          } else if (controller.state == ResultState.HasData) {
+                            return Text(
+                              controller.storeAdmin.store!.name!,
+                              style: header2TxtStyle.copyWith(
+                                color: darkSeaGreenColor,
+                              ),
+                            );
+                          } else if (controller.state == ResultState.NoData) {
+                            return Text(controller.message);
+                          } else if (controller.state == ResultState.Error) {
+                            return ResultStateAlert.error(controller.message);
+                          } else {
+                            return SizedBox();
+                          }
+                        },
                       ),
                       SizedBox(
                         width: 5,

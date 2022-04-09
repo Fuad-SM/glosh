@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:glosh/core/core.dart';
-import 'package:glosh/presentation/components/component.dart';
 import 'package:glosh/presentation/screens/screen.dart';
+import 'package:glosh/presentation/widgets/component.dart';
 
 class GetXRoute {
   // Route Name
@@ -15,6 +15,7 @@ class GetXRoute {
   static const String productUserRouteName = '/productUser';
   static const String detailRouteName = '/detail';
   static const String checkoutRouteName = '/check';
+  static const String profileRouteName = '/profile';
 
   // Admin Part
   static const String homeAdminRouteName = '/homeAdmin';
@@ -60,6 +61,11 @@ class GetXRoute {
         binding: ProductBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
+    GetPage(
+        name: profileRouteName,
+        page: () => const ProfileScreen(),
+        transitionDuration: const Duration(milliseconds: 400),
+        transition: Transition.native),
     // GetPage(
     //     name: RouteName.detailRoute,
     //     page: () => DetailBookScreen(detailBook: Get.arguments as BookModel?),
@@ -76,6 +82,7 @@ class GetXRoute {
     GetPage(
         name: homeAdminRouteName,
         page: () => const HomeAdminScreen(),
+        binding: ProductBinding(),
         transitionDuration: const Duration(milliseconds: 400),
         transition: Transition.native),
     GetPage(

@@ -5,6 +5,85 @@ class ProductAdminScreen extends GetView<ProductAdminUIController> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> pageWidget = [
+      Column(
+        children: [
+          CardProduct(),
+          BottomBarProduct(),
+        ],
+      ),
+      Obx(
+        () {
+          if (controller.collection.state == ResultState.Loading) {
+            return ResultStateAlert.loading(context);
+          } else if (controller.collection.state == ResultState.HasData) {
+            return Column(
+              children: [
+                CardCategory(controller: controller.collection),
+                BottomBarCategory(controller: controller.collection),
+              ],
+            );
+          } else if (controller.collection.state == ResultState.NoData) {
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  Lottie.network(
+                    'https://assets4.lottiefiles.com/packages/lf20_oga1x3jk.json',
+                    width: Get.width - 40,
+                    height: Get.height / 2.5,
+                  ),
+                  Center(
+                    child: Text(
+                      'Your Collection is Empty',
+                      style: regularTextStyle.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  SizedBox(
+                    width: Get.width / 1.5,
+                    child: CustomElevatedBtn(
+                      onPressed: () {
+                        showModalBottomSheet(
+                          isScrollControlled: true,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
+                            ),
+                          ),
+                          context: context,
+                          builder: (context) {
+                            return SingleChildScrollView(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  bottom:
+                                      MediaQuery.of(context).viewInsets.bottom,
+                                  right: 35,
+                                  left: 35,
+                                ),
+                                child: CategoryAddModal(),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      title: 'Add Collection',
+                    ),
+                  )
+                ],
+              ),
+            );
+          } else if (controller.collection.state == ResultState.Error) {
+            return Text(controller.collection.message);
+          } else {
+            return SizedBox();
+          }
+        },
+      ),
+    ];
+
     return Scaffold(
       backgroundColor: lightGreenColor,
       appBar: AppBar(
@@ -53,7 +132,7 @@ class ProductAdminScreen extends GetView<ProductAdminUIController> {
                 Obx(
                   () => Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: controller.pageWidget.asMap().entries.map(
+                    children: pageWidget.asMap().entries.map(
                       (index) {
                         return GestureDetector(
                           onTap: () => controller.onChoiceTapped(index.key),
@@ -72,7 +151,7 @@ class ProductAdminScreen extends GetView<ProductAdminUIController> {
                             ),
                             alignment: Alignment.center,
                             child: Text(
-                              index.key == 0 ? 'Product' : 'Category',
+                              index.key == 0 ? 'Product' : 'Collection',
                               style: controller.selectedChoice == index.key
                                   ? regularTextStyle.copyWith(
                                       color: darkSeaGreenColor,
@@ -98,7 +177,7 @@ class ProductAdminScreen extends GetView<ProductAdminUIController> {
                 },
                 scrollDirection: Axis.horizontal,
                 controller: controller.pageController,
-                children: controller.pageWidget,
+                children: pageWidget,
               ),
             ),
           ),

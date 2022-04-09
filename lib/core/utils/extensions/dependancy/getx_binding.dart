@@ -6,6 +6,12 @@ class StartedBinding implements Bindings {
     Get.lazyPut(() => StartedController());
     Get.lazyPut(() => GetStartController());
     Get.lazyPut(() => LoginController());
+    Get.lazyPut(() => NavbarController());
+    Get.lazyPut(() => ProductAdminController());
+    Get.lazyPut(() => StoreAdminController());
+    Get.lazyPut(() => CountCartController());
+    Get.lazyPut(() => LogoutController());
+    Get.lazyPut(() => CustomerController());
   }
 }
 
@@ -34,7 +40,10 @@ class NavbarBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => NavbarController());
+    Get.lazyPut(() => ProductAdminController());
     Get.lazyPut(() => CountCartController());
+    Get.lazyPut(() => LogoutController());
+    Get.lazyPut(() => CustomerController());
   }
 }
 
@@ -49,6 +58,7 @@ class ProductBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => ProductAdminController());
+    Get.lazyPut(() => StoreAdminController());
   }
 }
 
@@ -61,7 +71,7 @@ class ProductAdminBinding implements Bindings {
 }
 
 class InjectController {
-  static void doRegister() {
+  static void doRegister() async {
     Get.lazyPut(() => FireStorageController());
   }
 }

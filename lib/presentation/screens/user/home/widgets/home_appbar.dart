@@ -37,8 +37,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
         child: GestureDetector(
           onTap: () async {
             var email = await PreferencesHelper().getEmail();
-            var password = await PreferencesHelper().getPassword();
-            print('Email = $email dan password = $password');
+            print('Email = $email');
             // print('Password = ${pref.getPassword()}');
           },
           child: TextField(

@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 import 'package:glosh/core/app_environment.dart';
 import 'package:glosh/core/core.dart';
 import 'package:glosh/core/utils/constanta.dart';
-import 'package:glosh/data/controller/admin/product_admin_controller.dart';
-import 'package:glosh/data/repositories/admin/auth_repository.dart';
+import 'package:glosh/data/controller/getx_controller.dart';
+import 'package:glosh/data/repositories/repository.dart';
 import 'package:glosh/presentation/animation/stagered_animation.dart';
-import 'package:glosh/presentation/components/component.dart';
+import 'package:glosh/presentation/widgets/component.dart';
 import 'package:glosh/presentation/routes/getx_route.dart';
 import 'package:glosh/presentation/themes/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,21 +19,21 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
 
 // Started
-part 'start/started_screen.dart';
-part 'start/controller/started_controller.dart';
+part 'general/start/started_screen.dart';
+part 'general/start/controller/started_controller.dart';
 
 // GetStarted
-part 'getstarted/getstarted_screen.dart';
-part 'getstarted/controller/getstart_controller.dart';
+part 'general/getstarted/getstarted_screen.dart';
+part 'general/getstarted/controller/getstart_controller.dart';
 
 // Login
-part 'login/controller/login_controller.dart';
-part 'login/login_screen.dart';
+part 'general/login/controller/login_controller.dart';
+part 'general/login/login_screen.dart';
 
 // Sign Up
-part 'signup/controller/signup_controller.dart';
-part 'signup/widgets/password_validation.dart';
-part 'signup/signup_screen.dart';
+part 'general/signup/controller/signup_controller.dart';
+part 'general/signup/widgets/password_validation.dart';
+part 'general/signup/signup_screen.dart';
 
 // Part User
 
@@ -59,6 +59,11 @@ part 'user/checkout/widgets/checkout_container.dart';
 part 'user/checkout/widgets/custom_outlined_btn.dart';
 part 'user/checkout/checkout_pages.dart';
 
+// Profile
+part 'user/profile/profile_pages.dart';
+part 'user/profile/controller/profile_controller.dart';
+part 'user/profile/widgets/modal_bottom_profile.dart';
+
 // Invalid Pages
 part 'invalid_pages.dart';
 
@@ -81,8 +86,8 @@ part 'admin/home/widgets/purchase_history.dart';
 part 'admin/product_admin/product_admin_screen.dart';
 part 'admin/product_admin/controller/modal_bottom_controller.dart';
 part 'admin/product_admin/controller/product_admin_controller.dart';
-part 'admin/product_admin/widgets/category/bottom_bar_category.dart';
-part 'admin/product_admin/widgets/category/card_category.dart';
-part 'admin/product_admin/widgets/category/modal_bottom_category.dart';
+part 'admin/product_admin/widgets/collection/bottom_bar_collection.dart';
+part 'admin/product_admin/widgets/collection/card_collection.dart';
+part 'admin/product_admin/widgets/collection/modal_bottom_collection.dart';
 part 'admin/product_admin/widgets/product/bottom_bar_product.dart';
 part 'admin/product_admin/widgets/product/card_product.dart';

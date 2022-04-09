@@ -1,0 +1,22 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:cookie_jar/cookie_jar.dart';
+import 'package:glosh/core/app_environment.dart';
+import 'package:glosh/core/core.dart';
+import 'package:glosh/core/utils/extensions/helper/dio_helper.dart';
+import 'package:glosh/data/model/auth_body.dart';
+import 'package:glosh/data/model/collection.dart';
+import 'package:glosh/data/model/collection_id.dart';
+import 'package:glosh/data/model/customer.dart';
+import 'package:glosh/data/model/customer_body.dart';
+import 'package:glosh/data/model/product.dart';
+import 'package:glosh/data/model/store.dart';
+
+part 'auth_repository.dart';
+part 'product_repository.dart';
+part 'admin/collection_repository.dart';
+part 'admin/store_repository.dart';
+part 'admin/customer_repository.dart';
